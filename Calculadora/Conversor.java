@@ -1,3 +1,5 @@
+package Calculadora;
+
 public class Conversor {
     double unidades;
     
