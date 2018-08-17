@@ -1,23 +1,27 @@
 
 public class CalculadoraTrigonométrica {
     double ángulo;
+    double ánguloRadianes;
     
+    void convertirÁngulo(){
+        ánguloRadianes=Math.toRadians(ángulo);
+    } 
     double calcularSeno(){
-        return Math.sin(ángulo);
+        return Math.sin(ánguloRadianes);
     }
     double calcularCoseno(){
-        return Math.cos(ángulo);
+        return Math.cos(ánguloRadianes);
     }
     double calcularTangente(){
-        return Math.tan(ángulo);
+        return Math.tan(ánguloRadianes);
     }
     double calcularCotangente(){
-        return 1/Math.tan(ángulo);
+        return 1/Math.tan(ánguloRadianes);
     }
     double calcularSecante(){
-        return 1/Math.cos(ángulo);
+        return 1/Math.cos(ánguloRadianes);
     }
     double calcularCosecante(){
-        return 1/Math.sin(ángulo);
+        return 1/Math.sin(ánguloRadianes);
     }   
 }
