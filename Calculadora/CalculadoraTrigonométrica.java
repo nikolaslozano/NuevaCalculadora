@@ -1,3 +1,4 @@
+package Calculadora;
 
 public class CalculadoraTrigonométrica {
     double ángulo;
