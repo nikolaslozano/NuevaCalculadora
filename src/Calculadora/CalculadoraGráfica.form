@@ -107,18 +107,21 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="Multiplicar" min="-2" pref="48" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="Secante" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Cosecante" min="-2" pref="47" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="Dividir" min="-2" pref="48" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Igual" min="-2" pref="102" max="-2" attributes="0"/>
+                              <Component id="DeleteAll" min="-2" pref="47" max="-2" attributes="0"/>
                           </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Igual" min="-2" pref="47" max="-2" attributes="0"/>
+                          <Component id="Cosecante" min="-2" pref="47" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -208,8 +211,9 @@
                   <Component id="BotónCero" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                   <Component id="Dividir" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                   <Component id="Igual" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="DeleteAll" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <EmptySpace pref="65" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -222,38 +226,58 @@
         </Property>
       </Properties>
       <Events>
+        <EventHandler event="componentRemoved" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="VariableComponentRemoved"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VariableActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="VariableKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Bot&#xf3;nSiete">
       <Properties>
         <Property name="text" type="java.lang.String" value="7"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Bot&#xf3;nSieteMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Bot&#xf3;nOcho">
       <Properties>
         <Property name="text" type="java.lang.String" value="8"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Bot&#xf3;nOchoMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Bot&#xf3;nNueve">
       <Properties>
         <Property name="text" type="java.lang.String" value="9"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Bot&#xf3;nNueveMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Bot&#xf3;nCuatro">
       <Properties>
         <Property name="text" type="java.lang.String" value="4"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Bot&#xf3;nCuatroMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Bot&#xf3;nSeis">
       <Properties>
         <Property name="text" type="java.lang.String" value="6"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Bot&#xf3;nSeisMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Bot&#xf3;nCinco">
       <Properties>
         <Property name="text" type="java.lang.String" value="5"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Bot&#xf3;nCincoMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Bot&#xf3;nUno">
       <Properties>
@@ -267,16 +291,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="2"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Bot&#xf3;nDosMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Bot&#xf3;nTres">
       <Properties>
         <Property name="text" type="java.lang.String" value="3"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Bot&#xf3;nTresMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Bot&#xf3;nPunto">
       <Properties>
         <Property name="text" type="java.lang.String" value="."/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Bot&#xf3;nPuntoMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Bot&#xf3;nCero">
       <Properties>
@@ -340,6 +373,18 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="="/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IgualActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="DeleteAll">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="C"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DeleteAllMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeleteAllActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

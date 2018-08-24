@@ -60,6 +60,7 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
         Cotangente = new javax.swing.JButton();
         Cosecante = new javax.swing.JButton();
         Igual = new javax.swing.JButton();
+        DeleteAll = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
@@ -89,23 +90,63 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
         });
 
         Variable.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 36)); // NOI18N
+        Variable.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                VariableComponentRemoved(evt);
+            }
+        });
         Variable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VariableActionPerformed(evt);
             }
         });
+        Variable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                VariableKeyPressed(evt);
+            }
+        });
 
         BotónSiete.setText("7");
+        BotónSiete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotónSieteMouseClicked(evt);
+            }
+        });
 
         BotónOcho.setText("8");
+        BotónOcho.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotónOchoMouseClicked(evt);
+            }
+        });
 
         BotónNueve.setText("9");
+        BotónNueve.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotónNueveMouseClicked(evt);
+            }
+        });
 
         BotónCuatro.setText("4");
+        BotónCuatro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotónCuatroMouseClicked(evt);
+            }
+        });
 
         BotónSeis.setText("6");
+        BotónSeis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotónSeisMouseClicked(evt);
+            }
+        });
 
         BotónCinco.setText("5");
+        BotónCinco.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotónCincoMouseClicked(evt);
+            }
+        });
 
         BotónUno.setText("1");
         BotónUno.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -115,10 +156,25 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
         });
 
         BotónDos.setText("2");
+        BotónDos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotónDosMouseClicked(evt);
+            }
+        });
 
         BotónTres.setText("3");
+        BotónTres.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotónTresMouseClicked(evt);
+            }
+        });
 
         BotónPunto.setText(".");
+        BotónPunto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotónPuntoMouseClicked(evt);
+            }
+        });
 
         BotónCero.setText("0");
         BotónCero.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -148,6 +204,23 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
         Cosecante.setText("csc");
 
         Igual.setText("=");
+        Igual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IgualActionPerformed(evt);
+            }
+        });
+
+        DeleteAll.setText("C");
+        DeleteAll.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DeleteAllMouseClicked(evt);
+            }
+        });
+        DeleteAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteAllActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -172,13 +245,15 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Multiplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Secante)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Cosecante, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Secante))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Dividir, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Igual, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(DeleteAll, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Igual, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Cosecante, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(Variable)
                         .addGroup(layout.createSequentialGroup()
@@ -248,8 +323,9 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
                     .addComponent(BotónPunto, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotónCero, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Dividir, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Igual, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                    .addComponent(Igual, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DeleteAll, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
@@ -261,10 +337,10 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
 
     private void BotónCeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónCeroMouseClicked
         
-        if(Double.parseDouble(Variable.getText())!=0) {
-            Variable.setText(Variable.getText()+("0"));
-        } else {
+        if("0".equals(Variable.getText())) {
             Variable.setText("0");
+        } else {
+            Variable.setText(Variable.getText()+("0"));
         }
     }//GEN-LAST:event_BotónCeroMouseClicked
 
@@ -275,68 +351,101 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void BotónUnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónUnoMouseClicked
-        if(Double.parseDouble(Variable.getText())!=0) {
-            Variable.setText(Variable.getText()+("1"));
-        } else {
+        if("0".equals(Variable.getText())) {
             Variable.setText("1");
+        } else {
+            Variable.setText(Variable.getText()+("1"));
         }
     }//GEN-LAST:event_BotónUnoMouseClicked
-    private void BotónDosMouseClicked(java.awt.event.MouseEvent evt) {                                      
-        if(Double.parseDouble(Variable.getText())!=0) {
-            Variable.setText(Variable.getText()+("2"));
-        } else {
+
+    private void BotónDosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónDosMouseClicked
+        if("0".equals(Variable.getText())) {
             Variable.setText("2");
-        }
-    } 
-    private void BotónTresMouseClicked(java.awt.event.MouseEvent evt) {                                      
-        if(Double.parseDouble(Variable.getText())!=0) {
-            Variable.setText(Variable.getText()+("3"));
         } else {
+            Variable.setText(Variable.getText()+("2"));
+        }
+    }//GEN-LAST:event_BotónDosMouseClicked
+
+    private void BotónTresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónTresMouseClicked
+        if("0".equals(Variable.getText())) {
             Variable.setText("3");
-        }
-    }
-    private void BotónCuatroMouseClicked(java.awt.event.MouseEvent evt) {                                      
-        if(Double.parseDouble(Variable.getText())!=0) {
-            Variable.setText(Variable.getText()+("4"));
         } else {
+            Variable.setText(Variable.getText()+("3"));
+        }
+    }//GEN-LAST:event_BotónTresMouseClicked
+
+    private void BotónCuatroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónCuatroMouseClicked
+        if("0".equals(Variable.getText())) {
             Variable.setText("4");
-        }
-    }  
-    private void BotónCincoMouseClicked(java.awt.event.MouseEvent evt) {                                      
-        if(Double.parseDouble(Variable.getText())!=0) {
-            Variable.setText(Variable.getText()+("5"));
         } else {
+            Variable.setText(Variable.getText()+("4"));
+        }
+    }//GEN-LAST:event_BotónCuatroMouseClicked
+
+    private void BotónCincoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónCincoMouseClicked
+        if("0".equals(Variable.getText())) {
             Variable.setText("5");
-        }
-    }  
-    private void BotónSeisMouseClicked(java.awt.event.MouseEvent evt) {                                      
-        if(Double.parseDouble(Variable.getText())!=0) {
-            Variable.setText(Variable.getText()+("6"));
         } else {
+            Variable.setText(Variable.getText()+("5"));
+        }
+    }//GEN-LAST:event_BotónCincoMouseClicked
+
+    private void BotónSeisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónSeisMouseClicked
+        if("0".equals(Variable.getText())) {
             Variable.setText("6");
-        }
-    }   
-    private void BotónSieteMouseClicked(java.awt.event.MouseEvent evt) {                                      
-        if(Double.parseDouble(Variable.getText())!=0) {
-            Variable.setText(Variable.getText()+("7"));
         } else {
+            Variable.setText(Variable.getText()+("6"));
+        }
+    }//GEN-LAST:event_BotónSeisMouseClicked
+
+    private void BotónSieteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónSieteMouseClicked
+        if("0".equals(Variable.getText())) {
             Variable.setText("7");
-        }
-    }  
-    private void BotónOchoMouseClicked(java.awt.event.MouseEvent evt) {                                      
-        if(Double.parseDouble(Variable.getText())!=0) {
-            Variable.setText(Variable.getText()+("8"));
         } else {
+            Variable.setText(Variable.getText()+("7"));
+        }
+    }//GEN-LAST:event_BotónSieteMouseClicked
+
+    private void BotónOchoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónOchoMouseClicked
+        if("0".equals(Variable.getText())) {
             Variable.setText("8");
-        }
-    }  
-    private void BotónNueveMouseClicked(java.awt.event.MouseEvent evt) {                                      
-        if(Double.parseDouble(Variable.getText())!=0) {
-            Variable.setText(Variable.getText()+("9"));
         } else {
-            Variable.setText("9");
+            Variable.setText(Variable.getText()+("8"));
         }
-    }   
+    }//GEN-LAST:event_BotónOchoMouseClicked
+
+    private void BotónNueveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónNueveMouseClicked
+        if("0".equals(Variable.getText())) {
+            Variable.setText("9");
+        } else {
+            Variable.setText(Variable.getText()+("9"));
+        }
+    }//GEN-LAST:event_BotónNueveMouseClicked
+
+    private void BotónPuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónPuntoMouseClicked
+        Variable.setText(Variable.getText()+("."));
+    }//GEN-LAST:event_BotónPuntoMouseClicked
+
+    private void VariableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_VariableKeyPressed
+
+    }//GEN-LAST:event_VariableKeyPressed
+
+    private void VariableComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_VariableComponentRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VariableComponentRemoved
+
+    private void IgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IgualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IgualActionPerformed
+
+    private void DeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteAllActionPerformed
+        
+    }//GEN-LAST:event_DeleteAllActionPerformed
+
+    private void DeleteAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteAllMouseClicked
+        Variable.setText("0");
+    }//GEN-LAST:event_DeleteAllMouseClicked
+    
     /**
      * @param args the command line arguments
      */
@@ -387,6 +496,7 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
     private javax.swing.JButton Cosecante;
     private javax.swing.JButton Coseno;
     private javax.swing.JButton Cotangente;
+    private javax.swing.JButton DeleteAll;
     private javax.swing.JButton Dividir;
     private javax.swing.JButton Igual;
     private javax.swing.JButton Multiplicar;
