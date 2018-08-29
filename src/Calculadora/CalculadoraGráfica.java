@@ -14,6 +14,7 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
     int lock=0;
     CalculadoraAritmética calculadora=new CalculadoraAritmética();
     CalculadoraTrigonométrica calculadoraDeTrigo=new CalculadoraTrigonométrica();
+    Conversor conversor=new Conversor();
     
     public CalculadoraGráfica() {
         initComponents();
@@ -62,31 +63,31 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
         Igual = new javax.swing.JButton();
         DeleteAll = new javax.swing.JButton();
         Variable = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Fahlvin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        Fahlsius = new javax.swing.JButton();
+        Kelsius = new javax.swing.JButton();
+        Kelvinheit = new javax.swing.JButton();
+        Celvin = new javax.swing.JButton();
+        Celsiuheit = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        Gramonzas = new javax.swing.JButton();
+        Onzamos = new javax.swing.JButton();
+        Grambras = new javax.swing.JButton();
+        Libramos = new javax.swing.JButton();
+        Kilonadas = new javax.swing.JButton();
+        Tonilos = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
+        Metries = new javax.swing.JButton();
+        Pietros = new javax.swing.JButton();
+        Pielgadas = new javax.swing.JButton();
+        Pulpies = new javax.swing.JButton();
+        CentiAMetros = new javax.swing.JButton();
+        MetroACenti = new javax.swing.JButton();
+        Metrillas = new javax.swing.JButton();
+        Millatros = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
@@ -291,51 +292,151 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
         Variable.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         Variable.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        jButton1.setText("Fahrenheit a Kelvin");
+        Fahlvin.setText("Fahrenheit a Kelvin");
+        Fahlvin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FahlvinMouseClicked(evt);
+            }
+        });
 
         jLabel1.setText("Temperatura");
 
-        jButton2.setText("Fahrenheit a Celsius");
+        Fahlsius.setText("Fahrenheit a Celsius");
+        Fahlsius.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FahlsiusMouseClicked(evt);
+            }
+        });
 
-        jButton3.setText("Kelvin a Celsius");
+        Kelsius.setText("Kelvin a Celsius");
+        Kelsius.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KelsiusMouseClicked(evt);
+            }
+        });
 
-        jButton4.setText("Kelvin a Fahrenheit");
+        Kelvinheit.setText("Kelvin a Fahrenheit");
+        Kelvinheit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KelvinheitMouseClicked(evt);
+            }
+        });
 
-        jButton5.setText("Cesius a Kelvin");
+        Celvin.setText("Celsius a Kelvin");
+        Celvin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CelvinMouseClicked(evt);
+            }
+        });
 
-        jButton6.setText("Cesius a Fahrenheit");
+        Celsiuheit.setText("Celsius a Fahrenheit");
+        Celsiuheit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CelsiuheitMouseClicked(evt);
+            }
+        });
 
         jLabel2.setText("Peso");
 
-        jButton7.setText("Gramos a Onzas");
+        Gramonzas.setText("Gramos a Onzas");
+        Gramonzas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                GramonzasMouseClicked(evt);
+            }
+        });
 
-        jButton8.setText("Onzas a Gramos");
+        Onzamos.setText("Onzas a Gramos");
+        Onzamos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                OnzamosMouseClicked(evt);
+            }
+        });
 
-        jButton9.setText("Gramos a Libras");
+        Grambras.setText("Gramos a Libras");
+        Grambras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                GrambrasMouseClicked(evt);
+            }
+        });
 
-        jButton10.setText("Libras a Gramos");
+        Libramos.setText("Libras a Gramos");
+        Libramos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LibramosMouseClicked(evt);
+            }
+        });
 
-        jButton11.setText("Kilos a Toneladas");
+        Kilonadas.setText("Kilos a Toneladas");
+        Kilonadas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KilonadasMouseClicked(evt);
+            }
+        });
 
-        jButton12.setText("Toneladas a Kilos");
+        Tonilos.setText("Toneladas a Kilos");
+        Tonilos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TonilosMouseClicked(evt);
+            }
+        });
 
         jLabel3.setText("Longitud");
 
-        jButton13.setText("Metros a Pies");
+        Metries.setText("Metros a Pies");
+        Metries.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MetriesMouseClicked(evt);
+            }
+        });
 
-        jButton14.setText("Pies a Metros");
+        Pietros.setText("Pies a Metros");
+        Pietros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PietrosMouseClicked(evt);
+            }
+        });
 
-        jButton15.setText("Pies a Pugadas");
+        Pielgadas.setText("Pies a Pugadas");
+        Pielgadas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PielgadasMouseClicked(evt);
+            }
+        });
 
-        jButton16.setText("Pulgadas a Pies");
+        Pulpies.setText("Pulgadas a Pies");
+        Pulpies.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PulpiesMouseClicked(evt);
+            }
+        });
 
-        jButton17.setText("Centímetros a Metros");
+        CentiAMetros.setText("Centímetros a Metros");
+        CentiAMetros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CentiAMetrosMouseClicked(evt);
+            }
+        });
 
-        jButton18.setText("Metros a Centímetros");
+        MetroACenti.setText("Metros a Centímetros");
+        MetroACenti.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MetroACentiMouseClicked(evt);
+            }
+        });
 
-        jButton19.setText("Metros a Millas");
+        Metrillas.setText("Metros a Millas");
+        Metrillas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MetrillasMouseClicked(evt);
+            }
+        });
 
-        jButton20.setText("Millas a Metros");
+        Millatros.setText("Millas a Metros");
+        Millatros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MillatrosMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -408,56 +509,56 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel1)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(Fahlsius, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                    .addComponent(Fahlvin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Kelvinheit, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Celsiuheit, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Kelsius, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(Celvin, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jSeparator1)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Onzamos, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Libramos, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(Tonilos, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Gramonzas, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Grambras, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(Kilonadas, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel3)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Metries, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Pielgadas, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(CentiAMetros, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Pietros, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Pulpies, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(MetroACenti, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 2, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(88, 88, 88)
-                        .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Metrillas, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Millatros, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -507,44 +608,44 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton3)
-                            .addComponent(jButton5))
+                            .addComponent(Fahlvin)
+                            .addComponent(Kelsius)
+                            .addComponent(Celvin))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
-                            .addComponent(jButton4)
-                            .addComponent(jButton6))
+                            .addComponent(Fahlsius)
+                            .addComponent(Kelvinheit)
+                            .addComponent(Celsiuheit))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton7)
-                            .addComponent(jButton9)
-                            .addComponent(jButton11))
+                            .addComponent(Gramonzas)
+                            .addComponent(Grambras)
+                            .addComponent(Kilonadas))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton8)
-                            .addComponent(jButton10)
-                            .addComponent(jButton12))
+                            .addComponent(Onzamos)
+                            .addComponent(Libramos)
+                            .addComponent(Tonilos))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton13)
-                            .addComponent(jButton15)
-                            .addComponent(jButton17))
+                            .addComponent(Metries)
+                            .addComponent(Pielgadas)
+                            .addComponent(CentiAMetros))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton14)
-                            .addComponent(jButton16)
-                            .addComponent(jButton18))
+                            .addComponent(Pietros)
+                            .addComponent(Pulpies)
+                            .addComponent(MetroACenti))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton19)
-                            .addComponent(jButton20))))
+                            .addComponent(Metrillas)
+                            .addComponent(Millatros))))
                 .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -738,6 +839,126 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
         Variable.setText(String.valueOf(calculadora.operar()));
         lock=1;
     }//GEN-LAST:event_IgualMouseClicked
+
+    private void FahlvinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FahlvinMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.fahrenheitToKelvin()));
+        lock=1;
+    }//GEN-LAST:event_FahlvinMouseClicked
+
+    private void FahlsiusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FahlsiusMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.fahrenheitToCelsius()));
+        lock=1;
+    }//GEN-LAST:event_FahlsiusMouseClicked
+
+    private void KelsiusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KelsiusMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.kelvinToCelsius()));
+        lock=1;
+    }//GEN-LAST:event_KelsiusMouseClicked
+
+    private void KelvinheitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KelvinheitMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.kelvinToFahrenheit()));
+        lock=1;
+    }//GEN-LAST:event_KelvinheitMouseClicked
+
+    private void CelvinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CelvinMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.celsiusToKelvin()));
+        lock=1;
+    }//GEN-LAST:event_CelvinMouseClicked
+
+    private void CelsiuheitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CelsiuheitMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.celsiusToFahrenheit()));
+        lock=1;
+    }//GEN-LAST:event_CelsiuheitMouseClicked
+
+    private void GramonzasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GramonzasMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.gramToOunce()));
+        lock=1;
+    }//GEN-LAST:event_GramonzasMouseClicked
+
+    private void OnzamosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OnzamosMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.ounceToGram()));
+        lock=1;
+    }//GEN-LAST:event_OnzamosMouseClicked
+
+    private void GrambrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GrambrasMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.gramToPound()));
+        lock=1;
+    }//GEN-LAST:event_GrambrasMouseClicked
+
+    private void LibramosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LibramosMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.poundToGram()));
+        lock=1;
+    }//GEN-LAST:event_LibramosMouseClicked
+
+    private void KilonadasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KilonadasMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.kilogramToTonneAndGtK()));
+        lock=1;
+    }//GEN-LAST:event_KilonadasMouseClicked
+
+    private void TonilosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TonilosMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.tonneToKilogramAndKtG()));
+        lock=1;
+    }//GEN-LAST:event_TonilosMouseClicked
+
+    private void MetriesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MetriesMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.metresToFeet()));
+        lock=1;
+    }//GEN-LAST:event_MetriesMouseClicked
+
+    private void PietrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PietrosMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.feetToMetres()));
+        lock=1;
+    }//GEN-LAST:event_PietrosMouseClicked
+
+    private void PielgadasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PielgadasMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.feetToInches()));
+        lock=1;
+    }//GEN-LAST:event_PielgadasMouseClicked
+
+    private void PulpiesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PulpiesMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.inchesToFeet()));
+        lock=1;
+    }//GEN-LAST:event_PulpiesMouseClicked
+
+    private void CentiAMetrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CentiAMetrosMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.centimetresToMetres()));
+        lock=1;
+    }//GEN-LAST:event_CentiAMetrosMouseClicked
+
+    private void MetroACentiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MetroACentiMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.metresToCentimetres()));
+        lock=1;
+    }//GEN-LAST:event_MetroACentiMouseClicked
+
+    private void MetrillasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MetrillasMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.metresToMiles()));
+        lock=1;
+    }//GEN-LAST:event_MetrillasMouseClicked
+
+    private void MillatrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MillatrosMouseClicked
+        conversor.unidades=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(conversor.milesToMetres()));
+        lock=1;
+    }//GEN-LAST:event_MillatrosMouseClicked
     
     /**
      * @param args the command line arguments
@@ -784,39 +1005,39 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
     private javax.swing.JButton BotónSiete;
     private javax.swing.JButton BotónTres;
     private javax.swing.JButton BotónUno;
+    private javax.swing.JButton Celsiuheit;
+    private javax.swing.JButton Celvin;
+    private javax.swing.JButton CentiAMetros;
     private javax.swing.JButton Cosecante;
     private javax.swing.JButton Coseno;
     private javax.swing.JButton Cotangente;
     private javax.swing.JButton DeleteAll;
     private javax.swing.JButton Dividir;
+    private javax.swing.JButton Fahlsius;
+    private javax.swing.JButton Fahlvin;
+    private javax.swing.JButton Grambras;
+    private javax.swing.JButton Gramonzas;
     private javax.swing.JButton Igual;
+    private javax.swing.JButton Kelsius;
+    private javax.swing.JButton Kelvinheit;
+    private javax.swing.JButton Kilonadas;
+    private javax.swing.JButton Libramos;
+    private javax.swing.JButton Metries;
+    private javax.swing.JButton Metrillas;
+    private javax.swing.JButton MetroACenti;
+    private javax.swing.JButton Millatros;
     private javax.swing.JButton Multiplicar;
+    private javax.swing.JButton Onzamos;
+    private javax.swing.JButton Pielgadas;
+    private javax.swing.JButton Pietros;
+    private javax.swing.JButton Pulpies;
     private javax.swing.JButton Restar;
     private javax.swing.JButton Secante;
     private javax.swing.JButton Seno;
     private javax.swing.JButton Sumar;
     private javax.swing.JButton Tangente;
+    private javax.swing.JButton Tonilos;
     private javax.swing.JLabel Variable;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel jLabel1;
