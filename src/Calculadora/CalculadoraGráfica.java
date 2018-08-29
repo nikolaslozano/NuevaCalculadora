@@ -11,6 +11,7 @@ package Calculadora;
  */
 public class CalculadoraGráfica extends javax.swing.JFrame {
 
+    int operador;
     CalculadoraAritmética calculadora=new CalculadoraAritmética();
     CalculadoraTrigonométrica calculadoraDeTrigo=new CalculadoraTrigonométrica();
     
@@ -167,12 +168,32 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
         });
 
         Sumar.setText("+");
+        Sumar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SumarMouseClicked(evt);
+            }
+        });
 
         Restar.setText("-");
+        Restar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RestarMouseClicked(evt);
+            }
+        });
 
         Multiplicar.setText("x");
+        Multiplicar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MultiplicarMouseClicked(evt);
+            }
+        });
 
         Dividir.setText("÷");
+        Dividir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DividirMouseClicked(evt);
+            }
+        });
 
         Seno.setText("sen");
         Seno.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -217,6 +238,11 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
         });
 
         Igual.setText("=");
+        Igual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IgualMouseClicked(evt);
+            }
+        });
         Igual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IgualActionPerformed(evt);
@@ -348,6 +374,7 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+  
     private void BotónCeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónCeroMouseClicked
         
         if("0".equals(Variable.getText())) {
@@ -480,6 +507,35 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
         calculadoraDeTrigo.ángulo=Double.parseDouble(Variable.getText());
         Variable.setText(String.valueOf(calculadoraDeTrigo.calcularCosecante()));
     }//GEN-LAST:event_CosecanteMouseClicked
+
+    private void SumarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SumarMouseClicked
+        calculadora.operador=1;
+        calculadora.operando1=Double.parseDouble(Variable.getText());
+        Variable.setText("0");
+    }//GEN-LAST:event_SumarMouseClicked
+
+    private void RestarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RestarMouseClicked
+        calculadora.operador=2;
+        calculadora.operando1=Double.parseDouble(Variable.getText());
+        Variable.setText("0");
+    }//GEN-LAST:event_RestarMouseClicked
+
+    private void MultiplicarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MultiplicarMouseClicked
+        calculadora.operador=3;
+        calculadora.operando1=Double.parseDouble(Variable.getText());
+        Variable.setText("0");
+    }//GEN-LAST:event_MultiplicarMouseClicked
+
+    private void DividirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DividirMouseClicked
+        calculadora.operador=4;
+        calculadora.operando1=Double.parseDouble(Variable.getText());
+        Variable.setText("0");
+    }//GEN-LAST:event_DividirMouseClicked
+
+    private void IgualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IgualMouseClicked
+        calculadora.operando2=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(calculadora.operar()));
+    }//GEN-LAST:event_IgualMouseClicked
     
     /**
      * @param args the command line arguments

@@ -309,21 +309,33 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="+"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SumarMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Restar">
       <Properties>
         <Property name="text" type="java.lang.String" value="-"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="RestarMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Multiplicar">
       <Properties>
         <Property name="text" type="java.lang.String" value="x"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MultiplicarMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Dividir">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xf7;"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DividirMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Seno">
       <Properties>
@@ -378,6 +390,7 @@
         <Property name="text" type="java.lang.String" value="="/>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="IgualMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IgualActionPerformed"/>
       </Events>
     </Component>
