@@ -11,9 +11,9 @@ package Calculadora;
  */
 public class CalculadoraGráfica extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CalculadoraGráfica
-     */
+    CalculadoraAritmética calculadora=new CalculadoraAritmética();
+    CalculadoraTrigonométrica calculadoraDeTrigo=new CalculadoraTrigonométrica();
+    
     public CalculadoraGráfica() {
         initComponents();
     }
@@ -175,16 +175,46 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
         Dividir.setText("÷");
 
         Seno.setText("sen");
+        Seno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SenoMouseClicked(evt);
+            }
+        });
 
         Tangente.setText("tan");
+        Tangente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TangenteMouseClicked(evt);
+            }
+        });
 
         Secante.setText("sec");
+        Secante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SecanteMouseClicked(evt);
+            }
+        });
 
         Coseno.setText("cos");
+        Coseno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CosenoMouseClicked(evt);
+            }
+        });
 
         Cotangente.setText("cot");
+        Cotangente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CotangenteMouseClicked(evt);
+            }
+        });
 
         Cosecante.setText("csc");
+        Cosecante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CosecanteMouseClicked(evt);
+            }
+        });
 
         Igual.setText("=");
         Igual.addActionListener(new java.awt.event.ActionListener() {
@@ -420,6 +450,36 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
     private void DeleteAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteAllMouseClicked
         Variable.setText("0");
     }//GEN-LAST:event_DeleteAllMouseClicked
+
+    private void SenoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SenoMouseClicked
+        calculadoraDeTrigo.ángulo=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(calculadoraDeTrigo.calcularSeno()));
+    }//GEN-LAST:event_SenoMouseClicked
+
+    private void CosenoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CosenoMouseClicked
+        calculadoraDeTrigo.ángulo=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(calculadoraDeTrigo.calcularCoseno()));
+    }//GEN-LAST:event_CosenoMouseClicked
+
+    private void TangenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TangenteMouseClicked
+        calculadoraDeTrigo.ángulo=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(calculadoraDeTrigo.calcularTangente()));
+    }//GEN-LAST:event_TangenteMouseClicked
+
+    private void CotangenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CotangenteMouseClicked
+        calculadoraDeTrigo.ángulo=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(calculadoraDeTrigo.calcularCotangente()));
+    }//GEN-LAST:event_CotangenteMouseClicked
+
+    private void SecanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecanteMouseClicked
+        calculadoraDeTrigo.ángulo=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(calculadoraDeTrigo.calcularSecante()));
+    }//GEN-LAST:event_SecanteMouseClicked
+
+    private void CosecanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CosecanteMouseClicked
+        calculadoraDeTrigo.ángulo=Double.parseDouble(Variable.getText());
+        Variable.setText(String.valueOf(calculadoraDeTrigo.calcularCosecante()));
+    }//GEN-LAST:event_CosecanteMouseClicked
     
     /**
      * @param args the command line arguments

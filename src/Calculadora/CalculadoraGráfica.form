@@ -329,31 +329,49 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="sen"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SenoMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Tangente">
       <Properties>
         <Property name="text" type="java.lang.String" value="tan"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TangenteMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Secante">
       <Properties>
         <Property name="text" type="java.lang.String" value="sec"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SecanteMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Coseno">
       <Properties>
         <Property name="text" type="java.lang.String" value="cos"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CosenoMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Cotangente">
       <Properties>
         <Property name="text" type="java.lang.String" value="cot"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CotangenteMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Cosecante">
       <Properties>
         <Property name="text" type="java.lang.String" value="csc"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CosecanteMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Igual">
       <Properties>
