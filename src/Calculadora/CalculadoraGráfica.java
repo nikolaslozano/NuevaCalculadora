@@ -11,7 +11,7 @@ package Calculadora;
  */
 public class CalculadoraGráfica extends javax.swing.JFrame {
 
-    int operador;
+    int lock=0;
     CalculadoraAritmética calculadora=new CalculadoraAritmética();
     CalculadoraTrigonométrica calculadoraDeTrigo=new CalculadoraTrigonométrica();
     
@@ -377,7 +377,7 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
   
     private void BotónCeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónCeroMouseClicked
         
-        if("0".equals(Variable.getText())) {
+        if(lock==1) {
             Variable.setText("0");
         } else {
             Variable.setText(Variable.getText()+("0"));
@@ -387,76 +387,86 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         
         Variable.setText("0");
+        lock=1;
         
     }//GEN-LAST:event_formWindowActivated
 
     private void BotónUnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónUnoMouseClicked
-        if("0".equals(Variable.getText())) {
+        if(lock==1) {
             Variable.setText("1");
+            lock=0;
         } else {
             Variable.setText(Variable.getText()+("1"));
         }
     }//GEN-LAST:event_BotónUnoMouseClicked
 
     private void BotónDosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónDosMouseClicked
-        if("0".equals(Variable.getText())) {
+        if(lock==1) {
             Variable.setText("2");
+            lock=0;
         } else {
             Variable.setText(Variable.getText()+("2"));
         }
     }//GEN-LAST:event_BotónDosMouseClicked
 
     private void BotónTresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónTresMouseClicked
-        if("0".equals(Variable.getText())) {
+        if(lock==1) {
             Variable.setText("3");
+            lock=0;
         } else {
             Variable.setText(Variable.getText()+("3"));
         }
     }//GEN-LAST:event_BotónTresMouseClicked
 
     private void BotónCuatroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónCuatroMouseClicked
-        if("0".equals(Variable.getText())) {
+        if(lock==1) {
             Variable.setText("4");
+            lock=0;
         } else {
             Variable.setText(Variable.getText()+("4"));
         }
     }//GEN-LAST:event_BotónCuatroMouseClicked
 
     private void BotónCincoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónCincoMouseClicked
-        if("0".equals(Variable.getText())) {
+        if(lock==1) {
             Variable.setText("5");
+            lock=0;
         } else {
             Variable.setText(Variable.getText()+("5"));
         }
     }//GEN-LAST:event_BotónCincoMouseClicked
 
     private void BotónSeisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónSeisMouseClicked
-        if("0".equals(Variable.getText())) {
+        if(lock==1) {
             Variable.setText("6");
+            lock=0;
         } else {
             Variable.setText(Variable.getText()+("6"));
         }
     }//GEN-LAST:event_BotónSeisMouseClicked
 
     private void BotónSieteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónSieteMouseClicked
-        if("0".equals(Variable.getText())) {
+        if(lock==1) {
             Variable.setText("7");
+            lock=0;
         } else {
             Variable.setText(Variable.getText()+("7"));
         }
     }//GEN-LAST:event_BotónSieteMouseClicked
 
     private void BotónOchoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónOchoMouseClicked
-        if("0".equals(Variable.getText())) {
+        if(lock==1) {
             Variable.setText("8");
+            lock=0;
         } else {
             Variable.setText(Variable.getText()+("8"));
         }
     }//GEN-LAST:event_BotónOchoMouseClicked
 
     private void BotónNueveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónNueveMouseClicked
-        if("0".equals(Variable.getText())) {
+        if(lock==1) {
             Variable.setText("9");
+            lock=0;
         } else {
             Variable.setText(Variable.getText()+("9"));
         }
@@ -464,6 +474,7 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
 
     private void BotónPuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónPuntoMouseClicked
         Variable.setText(Variable.getText()+("."));
+        lock=0;
     }//GEN-LAST:event_BotónPuntoMouseClicked
 
     private void IgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IgualActionPerformed
@@ -476,65 +487,74 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
 
     private void DeleteAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteAllMouseClicked
         Variable.setText("0");
+        calculadora.operador=0;
+        lock=1;
     }//GEN-LAST:event_DeleteAllMouseClicked
 
     private void SenoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SenoMouseClicked
         calculadoraDeTrigo.ángulo=Double.parseDouble(Variable.getText());
         Variable.setText(String.valueOf(calculadoraDeTrigo.calcularSeno()));
+        lock=1;
     }//GEN-LAST:event_SenoMouseClicked
 
     private void CosenoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CosenoMouseClicked
         calculadoraDeTrigo.ángulo=Double.parseDouble(Variable.getText());
         Variable.setText(String.valueOf(calculadoraDeTrigo.calcularCoseno()));
+        lock=1;
     }//GEN-LAST:event_CosenoMouseClicked
 
     private void TangenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TangenteMouseClicked
         calculadoraDeTrigo.ángulo=Double.parseDouble(Variable.getText());
         Variable.setText(String.valueOf(calculadoraDeTrigo.calcularTangente()));
+        lock=1;
     }//GEN-LAST:event_TangenteMouseClicked
 
     private void CotangenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CotangenteMouseClicked
         calculadoraDeTrigo.ángulo=Double.parseDouble(Variable.getText());
         Variable.setText(String.valueOf(calculadoraDeTrigo.calcularCotangente()));
+        lock=1;
     }//GEN-LAST:event_CotangenteMouseClicked
 
     private void SecanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecanteMouseClicked
         calculadoraDeTrigo.ángulo=Double.parseDouble(Variable.getText());
         Variable.setText(String.valueOf(calculadoraDeTrigo.calcularSecante()));
+        lock=1;
     }//GEN-LAST:event_SecanteMouseClicked
 
     private void CosecanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CosecanteMouseClicked
         calculadoraDeTrigo.ángulo=Double.parseDouble(Variable.getText());
         Variable.setText(String.valueOf(calculadoraDeTrigo.calcularCosecante()));
+        lock=1;
     }//GEN-LAST:event_CosecanteMouseClicked
 
     private void SumarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SumarMouseClicked
         calculadora.operador=1;
         calculadora.operando1=Double.parseDouble(Variable.getText());
-        Variable.setText("0");
+        lock=1;
     }//GEN-LAST:event_SumarMouseClicked
 
     private void RestarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RestarMouseClicked
         calculadora.operador=2;
         calculadora.operando1=Double.parseDouble(Variable.getText());
-        Variable.setText("0");
+        lock=1;
     }//GEN-LAST:event_RestarMouseClicked
 
     private void MultiplicarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MultiplicarMouseClicked
         calculadora.operador=3;
         calculadora.operando1=Double.parseDouble(Variable.getText());
-        Variable.setText("0");
+        lock=1;
     }//GEN-LAST:event_MultiplicarMouseClicked
 
     private void DividirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DividirMouseClicked
         calculadora.operador=4;
         calculadora.operando1=Double.parseDouble(Variable.getText());
-        Variable.setText("0");
+        lock=1;
     }//GEN-LAST:event_DividirMouseClicked
 
     private void IgualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IgualMouseClicked
         calculadora.operando2=Double.parseDouble(Variable.getText());
         Variable.setText(String.valueOf(calculadora.operar()));
+        lock=1;
     }//GEN-LAST:event_IgualMouseClicked
     
     /**
