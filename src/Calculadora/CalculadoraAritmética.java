@@ -2,37 +2,62 @@ package Calculadora;
 
 public class CalculadoraAritmética {
     
-    int operando1;
-    int operando2;
+    double operando1;
+    double operando2;
+    int operador;
     
-    int sumar(){
-        int r;
+    double sumar(){
+        double r;
         
         r=operando1+operando2;
         return r;
     }
-    int restar(){
-        int r;
+    double restar(){
+        double r;
         
         r=operando1-operando2;
         return r;
     }
-    int multiplicar(){
-        int r;
+    double multiplicar(){
+        double r;
         
         r=operando1*operando2;
         return r;
     }
-    int dividir(){
-        int r;
+    double dividir(){
+        double r;
         
         r=operando1/operando2;
         return r;
     }
-    int calcularResiduo(){
-        int r;
+    double calcularResiduo(){
+        double r;
         
         r=operando1%operando2;
+        return r;
+    }
+    double operar(){
+        double r = 0;
+        switch (operador){
+            case 1:{
+                r=sumar();
+            }break;
+            case 2:{
+                r=restar();
+            }break;
+            case 3:{
+                r=multiplicar();
+            }break;
+            case 4:{
+                r=dividir();
+            }break;
+            case 5:{
+                r=calcularResiduo();
+            }break;
+            default:{
+                System.out.println("Error");
+            }
+        }
         return r;
     }
 }
