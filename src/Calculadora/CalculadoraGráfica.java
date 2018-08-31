@@ -62,7 +62,6 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
         Cosecante = new javax.swing.JButton();
         Igual = new javax.swing.JButton();
         DeleteAll = new javax.swing.JButton();
-        Variable = new javax.swing.JLabel();
         Fahlvin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Fahlsius = new javax.swing.JButton();
@@ -88,6 +87,7 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
         MetroACenti = new javax.swing.JButton();
         Metrillas = new javax.swing.JButton();
         Millatros = new javax.swing.JButton();
+        Variable = new javax.swing.JTextField();
 
         jMenu1.setText("jMenu1");
 
@@ -287,11 +287,6 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
             }
         });
 
-        Variable.setBackground(new java.awt.Color(255, 0, 0));
-        Variable.setFont(new java.awt.Font("Info Book", 0, 36)); // NOI18N
-        Variable.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        Variable.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-
         Fahlvin.setText("Fahrenheit a Kelvin");
         Fahlvin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -438,6 +433,12 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
             }
         });
 
+        Variable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                VariableKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -445,7 +446,6 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Variable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -501,7 +501,8 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
                                 .addComponent(Coseno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Cotangente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(Cotangente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(Variable))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -668,10 +669,8 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
     }//GEN-LAST:event_BotónCeroMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        
         Variable.setText("0");
         lock=1;
-        
     }//GEN-LAST:event_formWindowActivated
 
     private void BotónUnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónUnoMouseClicked
@@ -756,7 +755,9 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
     }//GEN-LAST:event_BotónNueveMouseClicked
 
     private void BotónPuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotónPuntoMouseClicked
-        Variable.setText(Variable.getText()+("."));
+        if(Double.parseDouble(Variable.getText())-Integer.parseInt(Variable.getText())==0){
+            Variable.setText(Variable.getText()+("."));
+        }
         lock=0;
     }//GEN-LAST:event_BotónPuntoMouseClicked
 
@@ -959,6 +960,18 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
         Variable.setText(String.valueOf(conversor.milesToMetres()));
         lock=1;
     }//GEN-LAST:event_MillatrosMouseClicked
+
+    private void VariableKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_VariableKeyTyped
+        char tecla = evt.getKeyChar();
+        if(((tecla<'0')||(tecla>'9'))&&(tecla!='.')){
+            evt.consume();
+        }
+        if(tecla=='.'){
+            if(Double.parseDouble(Variable.getText())-Integer.parseInt(Variable.getText())!=0){
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_VariableKeyTyped
     
     /**
      * @param args the command line arguments
@@ -1037,7 +1050,7 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
     private javax.swing.JButton Sumar;
     private javax.swing.JButton Tangente;
     private javax.swing.JButton Tonilos;
-    private javax.swing.JLabel Variable;
+    private javax.swing.JTextField Variable;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel jLabel1;
