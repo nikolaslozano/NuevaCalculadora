@@ -969,7 +969,7 @@ public class CalculadoraGráfica extends javax.swing.JFrame {
         if(tecla=='.'){
             if(Double.parseDouble(Variable.getText())-Integer.parseInt(Variable.getText())!=0){
                 evt.consume();
-            }
+            } 
         }
     }//GEN-LAST:event_VariableKeyTyped
     
